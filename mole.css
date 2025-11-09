@@ -1,14 +1,27 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background: url("./mario-bg.jpg");
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #board {
     width: 540px;
     height: 540px;
-    /* background-color: green; */
+    max-width: 95vw;
+    max-height: 95vw;
 
     margin: 0 auto;
     display: flex;
@@ -22,20 +35,67 @@ body {
 
 #board div {
     /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
-    width: 180px; 
-    height: 180px;
+    width: 33.333%; 
+    height: 33.333%;
     background-image: url("./pipe.png");
     background-size: cover;
+    transition: transform 0.1s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#board div:active {
+    transform: scale(0.95);
 }
 
 #board div img {
     /* all img tags inside tiles */
-    width: 100px;
-    height: 100px;
+    width: 55%;
+    height: 55%;
+    max-width: 100px;
+    max-height: 100px;
 
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
     -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #board {
+        border: 2px solid white;
+        border-radius: 15px;
+    }
+    
+    #board div img {
+        width: 60%;
+        height: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    #board {
+        border-radius: 10px;
+    }
+}
+
+/* Prevent text selection during gameplay */
+#score {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
     -ms-user-select: none;
 }
