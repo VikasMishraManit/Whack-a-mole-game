@@ -5,14 +5,12 @@ let gameOver = false;
 
 window.onload = function() {
     setGame();
-
     // Prevent default touch behaviors that might interfere with the game
     document.body.addEventListener('touchstart', function(e) {
         if (e.target.tagName === 'IMG') {
             e.preventDefault();
         }
     }, { passive: false });
-
     // Restart button event
     document.getElementById("restart-btn").addEventListener("click", restartGame);
 }
@@ -22,7 +20,6 @@ function setGame() {
     for (let i = 0; i < 9; i++) {
         let tile = document.createElement("div");
         tile.id = i.toString();
-
         // Add both click and touch event listeners for mobile compatibility
         tile.addEventListener("click", selectTile);
         tile.addEventListener("touchstart", handleTouch, { passive: false });
@@ -47,13 +44,11 @@ function getRandomTile() {
 function setMole() {
     if (gameOver) return;
     if (currMoleTile) currMoleTile.innerHTML = "";
-
     let mole = document.createElement("img");
     mole.src = "./monty-mole.png";
     mole.draggable = false;
     mole.style.userSelect = 'none';
     mole.style.pointerEvents = 'none';
-
     let num = getRandomTile();
     if (currPlantTile && currPlantTile.id == num) return;
     currMoleTile = document.getElementById(num);
@@ -63,13 +58,11 @@ function setMole() {
 function setPlant() {
     if (gameOver) return;
     if (currPlantTile) currPlantTile.innerHTML = "";
-
     let plant = document.createElement("img");
     plant.src = "./piranha-plant.png";
     plant.draggable = false;
     plant.style.userSelect = 'none';
     plant.style.pointerEvents = 'none';
-
     let num = getRandomTile();
     if (currMoleTile && currMoleTile.id == num) return;
     currPlantTile = document.getElementById(num);
@@ -78,11 +71,9 @@ function setPlant() {
 
 function selectTile() {
     if (gameOver) return;
-
     if (this == currMoleTile) {
         score += 10;
         document.getElementById("score").innerText = score.toString();
-
         // Add visual feedback
         this.style.transform = 'scale(0.95)';
         setTimeout(() => this.style.transform = 'scale(1)', 100);
@@ -90,7 +81,6 @@ function selectTile() {
     else if (this == currPlantTile) {
         gameOver = true;
         document.getElementById("score").innerText = "GAME OVER: " + score.toString();
-
         // Show game over modal
         showGameOver();
     }
