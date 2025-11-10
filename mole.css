@@ -3,7 +3,6 @@
     -webkit-touch-callout: none;
     box-sizing: border-box;
 }
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -17,7 +16,6 @@ body {
     overflow-x: hidden;
     color: white;
 }
-
 #board {
     width: 540px;
     height: 540px;
@@ -31,7 +29,6 @@ body {
     border: 3px solid white;
     border-radius: 25px;
 }
-
 #board div {
     width: 33.333%; 
     height: 33.333%;
@@ -43,11 +40,9 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 #board div:active {
     transform: scale(0.95);
 }
-
 #board div img {
     width: 55%;
     height: 55%;
@@ -56,7 +51,6 @@ body {
     user-select: none;
     pointer-events: none;
 }
-
 /* Restart button */
 #restart-btn {
     background: #ffcc00;
@@ -69,11 +63,9 @@ body {
     cursor: pointer;
     transition: 0.2s;
 }
-
 #restart-btn:hover {
     background: #ffdd33;
 }
-
 /* Game over modal */
 #game-over {
     display: none;
@@ -87,7 +79,6 @@ body {
     flex-direction: column;
     z-index: 999;
 }
-
 #game-over-content {
     background: white;
     color: black;
@@ -97,7 +88,6 @@ body {
     max-width: 90%;
     box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
-
 #game-over button {
     background: #007bff;
     border: none;
@@ -108,7 +98,6 @@ body {
     cursor: pointer;
     margin-top: 10px;
 }
-
 #game-over button:hover {
     background: #0056b3;
 }
