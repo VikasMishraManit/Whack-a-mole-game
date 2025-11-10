@@ -53,18 +53,28 @@ body {
 }
 /* Restart button */
 #restart-btn {
-    background: #ffcc00;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    font-size: 1rem;
+    padding: 15px 35px;
+    margin-top: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 #restart-btn:hover {
-    background: #ffdd33;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+#restart-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 /* Game over modal */
 #game-over {
